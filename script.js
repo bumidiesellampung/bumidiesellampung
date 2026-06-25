@@ -12,18 +12,18 @@ const categories = [
 ];
 
 const products = [
-    { id: 1, name: 'Filter Udara Heavy Duty', category: 'excavator', img: 'assets/products/filter_udara.png', desc: 'Menyaring partikel debu dengan efisiensi 99.9% untuk melindungi mesin Anda.' },
-    { id: 2, name: 'Pompa Hidrolik Utama', category: 'excavator', img: 'assets/products/pompa_hidrolik.png', desc: 'Pompa hidrolik bertekanan tinggi untuk ekskavator kelas 20 ton.' },
-    { id: 3, name: 'Track Link Assy', category: 'bulldozer', img: 'assets/products/track_link.png', desc: 'Track link baja paduan yang tahan terhadap gesekan ekstrem.' },
-    { id: 4, name: 'Injector Assembly', category: 'mesin-diesel', img: 'assets/products/injector.png', desc: 'Sistem injeksi presisi tinggi untuk efisiensi bahan bakar maksimal.' },
-    { id: 5, name: 'Turbocharger Kit', category: 'mesin-diesel', img: 'assets/products/turbocharger.png', desc: 'Meningkatkan tenaga mesin dengan pasokan udara yang lebih padat.' },
-    { id: 6, name: 'Water Pump', category: 'wheel-loader', img: 'assets/products/water_pump.png', desc: 'Menjaga sirkulasi pendingin engine agar terhindar dari overheat.' },
-    { id: 7, name: 'Piston & Liner Kit', category: 'mesin-diesel', img: 'assets/products/piston.png', desc: 'Kit overhoul lengkap dengan material anti-aus standar OEM.' },
-    { id: 8, name: 'Alternator 24V', category: 'genset', img: 'assets/products/alternator.png', desc: 'Pengisian daya kelistrikan yang stabil untuk unit heavy duty.' },
-    { id: 9, name: 'Radiator Assy', category: 'genset', img: 'assets/products/radiator.png', desc: 'Pendinginan optimal untuk operasional genset nonstop 24 jam.' },
-    { id: 10, name: 'Starter Motor', category: 'wheel-loader', img: 'assets/products/starter_motor.png', desc: 'Menghidupkan mesin diesel besar dengan cepat di berbagai kondisi.' },
-    { id: 11, name: 'Seal Kit Cylinder', category: 'forklift', img: 'assets/products/seal_kit.png', desc: 'Mengatasi kebocoran oli hidrolik pada silinder boom dan bucket.' },
-    { id: 12, name: 'Controller Module', category: 'genset', img: 'assets/products/controller_module.png', desc: 'Modul pintar untuk otomasi dan perlindungan sistem genset Anda.' }
+    { id: 1, name: 'Filter Udara Heavy Duty', category: 'excavator', img: 'filter_udara.png', desc: 'Menyaring partikel debu dengan efisiensi 99.9% untuk melindungi mesin Anda.' },
+    { id: 2, name: 'Pompa Hidrolik Utama', category: 'excavator', img: 'pompa_hidrolik.png', desc: 'Pompa hidrolik bertekanan tinggi untuk ekskavator kelas 20 ton.' },
+    { id: 3, name: 'Track Link Assy', category: 'bulldozer', img: 'track_link.png', desc: 'Track link baja paduan yang tahan terhadap gesekan ekstrem.' },
+    { id: 4, name: 'Injector Assembly', category: 'mesin-diesel', img: 'injector.png', desc: 'Sistem injeksi presisi tinggi untuk efisiensi bahan bakar maksimal.' },
+    { id: 5, name: 'Turbocharger Kit', category: 'mesin-diesel', img: 'turbocharger.png', desc: 'Meningkatkan tenaga mesin dengan pasokan udara yang lebih padat.' },
+    { id: 6, name: 'Water Pump', category: 'wheel-loader', img: 'water_pump.png', desc: 'Menjaga sirkulasi pendingin engine agar terhindar dari overheat.' },
+    { id: 7, name: 'Piston & Liner Kit', category: 'mesin-diesel', img: 'piston.png', desc: 'Kit overhoul lengkap dengan material anti-aus standar OEM.' },
+    { id: 8, name: 'Alternator 24V', category: 'genset', img: 'alternator.png', desc: 'Pengisian daya kelistrikan yang stabil untuk unit heavy duty.' },
+    { id: 9, name: 'Radiator Assy', category: 'genset', img: 'radiator.png', desc: 'Pendinginan optimal untuk operasional genset nonstop 24 jam.' },
+    { id: 10, name: 'Starter Motor', category: 'wheel-loader', img: 'starter_motor.png', desc: 'Menghidupkan mesin diesel besar dengan cepat di berbagai kondisi.' },
+    { id: 11, name: 'Seal Kit Cylinder', category: 'forklift', img: 'seal_kit.png', desc: 'Mengatasi kebocoran oli hidrolik pada silinder boom dan bucket.' },
+    { id: 12, name: 'Controller Module', category: 'genset', img: 'controller_module.png', desc: 'Modul pintar untuk otomasi dan perlindungan sistem genset Anda.' }
 ];
 
 const testimonials = [
