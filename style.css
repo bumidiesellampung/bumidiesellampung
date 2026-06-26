@@ -323,7 +323,7 @@ html.light .navbar.scrolled .logo-img {
     height: 100vh;
     min-height: 600px;
     position: relative;
-    background-image: url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1920&q=80');
+    background-image: url('excavator_bg.png');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
