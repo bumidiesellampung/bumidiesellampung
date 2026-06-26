@@ -828,14 +828,13 @@ html.dark .category-card i {
    Kontak Section
    ========================================= */
 .contact-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
     background-color: var(--card-bg);
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--border-clr);
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .contact-info {
@@ -870,9 +869,6 @@ html.dark .category-card i {
     margin-top: 0.25rem;
 }
 
-.contact-map {
-    min-height: 400px;
-}
 
 /* =========================================
    Footer
@@ -1004,7 +1000,6 @@ html.dark .category-card i {
    ========================================= */
 @media (max-width: 992px) {
     .hero h1 { font-size: 2.8rem; }
-    .contact-wrapper { grid-template-columns: 1fr; }
     .footer-content { grid-template-columns: 1fr 1fr; }
 }
 
