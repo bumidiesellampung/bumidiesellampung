@@ -8,22 +8,24 @@ const categories = [
     { id: 'forklift', name: 'Sparepart Forklift', icon: 'fa-dolly', desc: 'Suku cadang forklift elektrik dan diesel.' },
     { id: 'wheel-loader', name: 'Sparepart Wheel Loader', icon: 'fa-truck-moving', desc: 'Transmisi, hidrolik, dan suku cadang wheel loader.' },
     { id: 'diesel-engine', name: 'Mesin Diesel', icon: 'fa-gears', desc: 'Komponen internal engine berbagai merk.' },
-    { id: 'genset', name: 'Sparepart Genset', icon: 'fa-plug-circle-bolt', desc: 'Alternator, modul kontrol, dan sparepart genset.' }
+    { id: 'genset', name: 'Sparepart Genset', icon: 'fa-plug-circle-bolt', desc: 'Alternator, modul kontrol, dan sparepart genset.' },
+    { id: 'umum', name: 'Sparepart Umum / Oli', icon: 'fa-oil-can', desc: 'Pelumas, filter, dan komponen universal untuk semua mesin.' }
 ];
 
 const products = [
     { id: 1, name: 'Filter Udara Heavy Duty', category: 'excavator', img: 'assets/filter_udara.png', desc: 'Menyaring partikel debu dengan efisiensi 99.9% untuk melindungi mesin Anda.' },
     { id: 2, name: 'Pompa Hidrolik Utama', category: 'excavator', img: 'assets/pompa_hidrolik.png', desc: 'Pompa hidrolik bertekanan tinggi untuk ekskavator kelas 20 ton.' },
     { id: 3, name: 'Track Link Assy', category: 'bulldozer', img: 'assets/track_link.png', desc: 'Track link baja paduan yang tahan terhadap gesekan ekstrem.' },
-    { id: 4, name: 'Injector Assembly', category: 'mesin-diesel', img: 'assets/injector.png', desc: 'Sistem injeksi presisi tinggi untuk efisiensi bahan bakar maksimal.' },
-    { id: 5, name: 'Turbocharger Kit', category: 'mesin-diesel', img: 'assets/turbocharger.png', desc: 'Meningkatkan tenaga mesin dengan pasokan udara yang lebih padat.' },
+    { id: 4, name: 'Injector Assembly', category: 'diesel-engine', img: 'assets/injector.png', desc: 'Sistem injeksi presisi tinggi untuk efisiensi bahan bakar maksimal.' },
+    { id: 5, name: 'Turbocharger Kit', category: 'diesel-engine', img: 'assets/turbocharger.png', desc: 'Meningkatkan tenaga mesin dengan pasokan udara yang lebih padat.' },
     { id: 6, name: 'Water Pump', category: 'wheel-loader', img: 'assets/water_pump.png', desc: 'Menjaga sirkulasi pendingin engine agar terhindar dari overheat.' },
-    { id: 7, name: 'Piston & Liner Kit', category: 'mesin-diesel', img: 'assets/piston.png', desc: 'Kit overhoul lengkap dengan material anti-aus standar OEM.' },
+    { id: 7, name: 'Piston & Liner Kit', category: 'diesel-engine', img: 'assets/piston.png', desc: 'Kit overhoul lengkap dengan material anti-aus standar OEM.' },
     { id: 8, name: 'Alternator 24V', category: 'genset', img: 'assets/alternator.png', desc: 'Pengisian daya kelistrikan yang stabil untuk unit heavy duty.' },
     { id: 9, name: 'Radiator Assy', category: 'genset', img: 'assets/radiator.png', desc: 'Pendinginan optimal untuk operasional genset nonstop 24 jam.' },
     { id: 10, name: 'Starter Motor', category: 'wheel-loader', img: 'assets/starter_motor.png', desc: 'Menghidupkan mesin diesel besar dengan cepat di berbagai kondisi.' },
     { id: 11, name: 'Seal Kit Cylinder', category: 'forklift', img: 'assets/seal_kit.png', desc: 'Mengatasi kebocoran oli hidrolik pada silinder boom dan bucket.' },
-    { id: 12, name: 'Controller Module', category: 'genset', img: 'assets/controller_module.png', desc: 'Modul pintar untuk otomasi dan perlindungan sistem genset Anda.' }
+    { id: 12, name: 'Controller Module', category: 'genset', img: 'assets/controller_module.png', desc: 'Modul pintar untuk otomasi dan perlindungan sistem genset Anda.' },
+    { id: 13, name: 'Oli Mesin Heavy Duty 15W-40', category: 'umum', img: 'assets/oli_mesin.png', desc: 'Pelumas berkualitas tinggi untuk perlindungan maksimal mesin diesel industri.' }
 ];
 
 const testimonials = [
@@ -149,7 +151,13 @@ function renderFilterButtons() {
 function renderProducts(items) {
     const container = document.getElementById('product-grid');
     if (items.length === 0) {
-        container.innerHTML = '<p style="grid-column: 1/-1; text-align:center;">Produk tidak ditemukan.</p>';
+        container.innerHTML = `
+            <div class="empty-state fade-up">
+                <i class="fa-solid fa-box-open empty-icon"></i>
+                <h3>Oops, Produk Tidak Ditemukan!</h3>
+                <p>Silakan coba gunakan kata kunci lain atau pilih kategori yang berbeda.</p>
+            </div>
+        `;
         return;
     }
 
