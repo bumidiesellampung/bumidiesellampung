@@ -172,7 +172,7 @@ function renderProducts(items) {
             </div>
             <div class="product-info">
                 <h3>${prod.name}</h3>
-                <a href="https://wa.me/628218137639?text=${waText}" target="_blank" class="btn">
+                <a href="https://wa.me/6281179760063?text=${waText}" target="_blank" class="btn">
                     <i class="fa-brands fa-whatsapp"></i> Tanya via WA
                 </a>
             </div>
