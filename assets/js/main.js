@@ -7,7 +7,7 @@ const COMPANY_CONFIG = {
   whatsapp: "6281179760063",
   whatsappDisplay: "+62 811-7976-0063",
   email: "bumidiesellampung@gmail.com",
-  address: "Jl Ir Sutami gang seloja Kec. Panjang, Kota Bandar Lampung, Lampung 35244"
+  address: "Bandar Lampung, Lampung, Indonesia"
 };
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -209,9 +209,132 @@ document.addEventListener("DOMContentLoaded", () => {
     searchInput.addEventListener("input", applyProductFilters);
   }
 
-  // 5. Update Copyright Year
+  // 5. Scroll Reveal Animations (Smooth Fade-up with Stagger)
+  function initScrollReveal() {
+    const revealTargets = document.querySelectorAll(
+      ".section-header, .category-card, .product-card, .workflow-card, .feature-item-card, .brand-badge, .testimonial-card, .cta-banner, .form-card, .contact-info-card"
+    );
+
+    if (!("IntersectionObserver" in window)) {
+      revealTargets.forEach((el) => el.classList.add("revealed"));
+      return;
+    }
+
+    // Apply stagger delays to cards in grids
+    const gridContainers = document.querySelectorAll(
+      ".categories-grid, .product-grid, .workflow-grid, .features-grid, .brand-grid, .testimonials-grid"
+    );
+    gridContainers.forEach((grid) => {
+      const items = grid.children;
+      Array.from(items).forEach((item, idx) => {
+        item.style.transitionDelay = `${(idx % 4) * 0.1}s`;
+      });
+    });
+
+    const observer = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { root: null, threshold: 0.1, rootMargin: "0px 0px -30px 0px" }
+    );
+
+    revealTargets.forEach((el) => {
+      el.classList.add("reveal-init");
+      observer.observe(el);
+    });
+  }
+
+  // 6. Interactive Animated Stats Counter
+  function initStatCounter() {
+    const statValues = document.querySelectorAll(".stat-item .stat-value");
+    if (statValues.length === 0 || !("IntersectionObserver" in window)) return;
+
+    const counterObserver = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const fullText = el.textContent.trim();
+
+            let targetNum = 0;
+            let suffix = "";
+            let useDot = false;
+
+            if (fullText.includes("1.000")) {
+              targetNum = 1000;
+              suffix = "+";
+              useDot = true;
+            } else if (fullText.includes("500")) {
+              targetNum = 500;
+              suffix = "+";
+            } else if (fullText.includes("10")) {
+              targetNum = 10;
+              suffix = "+";
+            } else if (fullText.includes("24")) {
+              targetNum = 24;
+              suffix = " Jam";
+            } else {
+              obs.unobserve(el);
+              return;
+            }
+
+            const duration = 1600;
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+              const elapsed = currentTime - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const easeOut = 1 - Math.pow(1 - progress, 3);
+              const currentVal = Math.floor(easeOut * targetNum);
+
+              const formattedVal = useDot && currentVal >= 1000 
+                ? "1.000" 
+                : currentVal;
+
+              el.innerHTML = `${formattedVal}<span>${suffix}</span>`;
+
+              if (progress < 1) {
+                requestAnimationFrame(updateCounter);
+              } else {
+                const finalFormatted = useDot ? "1.000" : targetNum;
+                el.innerHTML = `${finalFormatted}<span>${suffix}</span>`;
+              }
+            }
+
+            requestAnimationFrame(updateCounter);
+            obs.unobserve(el);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    statValues.forEach((el) => counterObserver.observe(el));
+  }
+
+  // 7. Navbar Shadow on Scroll
+  const headerEl = document.querySelector(".header");
+  if (headerEl) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 30) {
+        headerEl.style.boxShadow = "0 8px 24px rgba(16, 45, 80, 0.12)";
+      } else {
+        headerEl.style.boxShadow = "var(--shadow-sm)";
+      }
+    });
+  }
+
+  // 8. Update Copyright Year
   const yearEl = document.getElementById("currentYear");
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
+
+  initScrollReveal();
+  initStatCounter();
 });
